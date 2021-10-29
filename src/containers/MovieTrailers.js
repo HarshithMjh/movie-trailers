@@ -20,7 +20,7 @@ function MovieTrailers(props) {
 
   return (
     <div id="movieTrailersContainer">
-      <div id="movieTrailersHeaderSection">Header</div>
+      <div id="movieTrailersHeaderSection">Headerr</div>
       <div id="movieTrailersBodySection">Body</div>
     </div>
   );
