@@ -1,4 +1,5 @@
 import React from "react";
+import Filters from "../components/Filters";
 import "./MovieTrailers.scss";
 
 function MovieTrailers(props) {
@@ -20,7 +21,9 @@ function MovieTrailers(props) {
 
   return (
     <div id="movieTrailersContainer">
-      <div id="movieTrailersHeaderSection">Headerr</div>
+      <div id="movieTrailersHeaderSection">
+        <Filters trailers={trailers} languages={languages} />
+      </div>
       <div id="movieTrailersBodySection">Body</div>
     </div>
   );

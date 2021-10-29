@@ -1,0 +1,36 @@
+#filtersContainer{
+  width: 100%;
+  height: 100%;
+  #headerFilters{
+    height: 60px;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: row;
+    background-color: #000;
+    #appLogo{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    #filterDropdowns{
+      height: 100%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      .dropdownContainer{
+        width: 200px;
+        height: 100%;
+      }
+    }
+  }
+  #selectedFilters{
+    height: calc(100% - 60px);
+    background-color: #1c1c1c;
+  }
+}
