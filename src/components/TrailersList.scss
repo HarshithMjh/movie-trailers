@@ -1,0 +1,84 @@
+#trailersListContainer{
+  padding: 0px 10px;
+  height: 100%;
+  background-color: #1c1c1c;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  .trailerCard{
+    width: 180px;
+    height: 270px;
+    margin: 0px 10px 15px 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    .trailerCardHeader{
+      width: 100%;
+      height: 240px;
+      position: relative;
+      pointer-events: none;
+      .forTrailerImage{
+        width: 100%;
+        height: 100%;
+      }
+      .dateDisplay{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 20px;
+        padding: 5px 0px;
+        border-radius: 20px;
+        color: #fff;
+        background-color: #43ab82;
+        text-transform: capitalize;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      .playCircle{
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s;
+        .playTriangle{
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 15px solid #fff;
+          transform: translateX(1px)
+        }
+      }
+    }
+    .trailerName{
+      padding: 5px 0px;
+      height: 20px;
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      pointer-events: none;
+    }
+  }
+  .trailerCard:hover{
+    .playCircle{
+      transform: scale(1.3, 1.3);
+    }
+  }
+  .trailerCardSelected{
+    border: 1px solid #43ab82;
+    .playCircle{
+      transform: scale(1.3, 1.3);
+    }
+  }
+}
+#trailersListContainer::-webkit-scrollbar-thumb{
+  visibility: hidden;
+}

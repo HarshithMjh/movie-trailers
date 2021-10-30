@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   #headerFilters{
-    height: 60px;
+    height: 50px;
     padding: 0px 15px;
     display: flex;
     flex-direction: row;
@@ -33,7 +33,7 @@
   }
   #selectedFilters{
     $text-color: #fff;
-    height: calc(100% - 60px);
+    height: calc(100% - 50px);
     background-color: #1c1c1c;
     padding: 0px 15px;
     display: flex;

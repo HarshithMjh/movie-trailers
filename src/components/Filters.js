@@ -4,11 +4,40 @@ import Chip from "@mui/material/Chip";
 import { genres } from "../configs";
 import "./Filters.scss";
 
-function Filters({ trailers, languages }) {
+function Filters({ trailers, languages, setFilteredTrailerIds }) {
   const [selectedLanguages, setSelectedLanguages] = React.useState([]);
   const [selectedGenres, setSelectedGenres] = React.useState([]);
 
-  React.useEffect(function () {}, [trailers]);
+  React.useEffect(
+    function () {
+      let filteredTrailerIds = [];
+      let selectedLanguagesLength = selectedLanguages.length;
+      let selectedGenresLength = selectedGenres.length;
+      if (selectedLanguagesLength === 0 && selectedGenresLength === 0) {
+        setFilteredTrailerIds(Object.keys(trailers));
+        return;
+      }
+      Object.keys(trailers).forEach((trailerId) => {
+        if (
+          selectedLanguagesLength > 0 &&
+          !selectedLanguages.includes(trailers[trailerId].EventLanguage)
+        ) {
+          return;
+        }
+        if (
+          selectedGenresLength > 0 &&
+          selectedGenres.findIndex((selectedGenre) =>
+            trailers[trailerId].EventGenre.includes(selectedGenre)
+          ) === -1
+        ) {
+          return;
+        }
+        filteredTrailerIds.push(trailerId);
+      });
+      setFilteredTrailerIds(filteredTrailerIds);
+    },
+    [trailers, selectedLanguages, selectedGenres, setFilteredTrailerIds]
+  );
 
   const deleteFilter = (setterFunction, index) => {
     setterFunction((prevState) => {
