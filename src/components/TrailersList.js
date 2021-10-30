@@ -1,4 +1,5 @@
 import React from "react";
+import LazyImageRenderer from "../utils/LazyImageRenderer";
 import "./TrailersList.scss";
 
 function TrailersList({ trailers, filteredTrailerIds }) {
@@ -25,7 +26,13 @@ function TrailersList({ trailers, filteredTrailerIds }) {
           data-trailerid={trailerId}
         >
           <div className="trailerCardHeader">
-            <div className="forTrailerImage"></div>
+            <div className="forTrailerImage">
+              <LazyImageRenderer
+                id={trailerId}
+                url={trailers[trailerId].EventImageUrl}
+                altText={trailers[trailerId].EventTitle}
+              />
+            </div>
             <div className="dateDisplay">
               <div>
                 {trailers[trailerId].DispReleaseDate.substring(
