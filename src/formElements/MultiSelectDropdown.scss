@@ -1,0 +1,34 @@
+$base-color: #43ab82;
+
+.multiselectDropdownContainer{
+  width: 100%;
+  .multiselectDropdown{
+    color: $base-color;
+    .MuiSelect-icon{
+      color: $base-color;
+    }
+    .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-notchedOutline:hover{
+      border-color: $base-color !important;
+    }
+    .MuiInputBase-input{
+      padding: 10px 32px 10px 12px;
+    }
+  }
+}
+
+.MuiPaper-root{
+  background-color: #292729 !important;
+  opacity: 0.8 !important;
+  .MuiMenuItem-root{
+    color: #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    .MuiCheckbox-root{
+      color: #fff;
+      padding: 3px 10px 3px 3px;
+    }
+    .Mui-checked{
+      color: $base-color;
+    }
+  }
+}

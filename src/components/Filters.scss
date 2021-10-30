@@ -19,18 +19,40 @@
       height: 100%;
       flex-grow: 1;
       display: flex;
-      flex-direction: row;
       justify-content: flex-end;
       align-items: center;
       flex-wrap: wrap;
       .dropdownContainer{
-        width: 200px;
+        width: 170px;
         height: 100%;
+        margin: 0px 5px;
+        display: flex;
+        align-items: center;
       }
     }
   }
   #selectedFilters{
+    $text-color: #fff;
     height: calc(100% - 60px);
     background-color: #1c1c1c;
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: auto;
+    .appliedFiltersText{
+      color: $text-color;
+      font-size: 1.1rem;
+    }
+    .filterChip{
+      margin: 0px 10px;
+      background-color: #2f2d2e;
+      .MuiChip-label{
+        color: $text-color;
+      }
+      .MuiSvgIcon-root{
+        color: $text-color;
+      }
+    }
   }
 }

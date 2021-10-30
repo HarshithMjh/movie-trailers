@@ -10,8 +10,8 @@ function MovieTrailers(props) {
     fetch("https://peaceful-forest-62260.herokuapp.com/")
       .then((res) => res.json())
       .then((response) => {
-        setTrailers(response.languageList);
-        setLanguages(response.moviesData);
+        setTrailers(response.moviesData);
+        setLanguages(response.languageList.sort());
       })
       .catch((error) => {
         console.log(error);
