@@ -1,29 +1,72 @@
 import React from "react";
+import TrailerExplore from "./TrailerExplore";
 import LazyImageRenderer from "../utils/LazyImageRenderer";
 import "./TrailersList.scss";
 
 function TrailersList({ trailers, filteredTrailerIds }) {
-  const [selectedTrailerId, setSelectedTrailerId] = React.useState(null);
+  const [selectedTrailer, setSelectedTrailer] = React.useState({});
+
+  const trailerContainerRef = React.useRef();
+  const trailerVideoSectionRef = React.useRef();
 
   React.useEffect(() => {
-    setSelectedTrailerId(null);
+    setSelectedTrailer({});
   }, [trailers, filteredTrailerIds]);
 
   const handleTrailerCardSelected = function (event) {
     if (event.target.dataset.trailerid !== undefined) {
-      setSelectedTrailerId(event.target.dataset.trailerid);
+      findOrderOfTrailerVideo(event.target.dataset.trailerid);
     }
   };
 
+  const findOrderOfTrailerVideo = function (trailerId) {
+    let numberOfTrailersPerRow = Math.floor(
+      (trailerContainerRef.current.clientWidth - 20) / 204
+    );
+    let selectedTrailerIndex = filteredTrailerIds.indexOf(trailerId);
+    setSelectedTrailer({
+      trailerId: trailerId,
+      trailerVideoOrder:
+        Math.floor(selectedTrailerIndex / numberOfTrailersPerRow) *
+        numberOfTrailersPerRow
+    });
+  };
+
+  React.useEffect(() => {
+    if (selectedTrailer.trailerId !== undefined) {
+      trailerVideoSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }, [selectedTrailer]);
+
   return (
-    <div id="trailersListContainer" onClick={handleTrailerCardSelected}>
+    <div
+      id="trailersListContainer"
+      onClick={handleTrailerCardSelected}
+      ref={trailerContainerRef}
+    >
+      {selectedTrailer.trailerId !== undefined && (
+        <div
+          className="trailerVideoSection"
+          key={`trailer-video-${selectedTrailer.trailerId}`}
+          style={{ order: selectedTrailer.trailerVideoOrder }}
+          ref={trailerVideoSectionRef}
+        >
+          <TrailerExplore
+            trailerDetails={trailers[selectedTrailer.trailerId]}
+          />
+        </div>
+      )}
       {filteredTrailerIds.map((trailerId, index) => (
         <div
           className={`trailerCard ${
-            trailerId === selectedTrailerId ? "trailerCardSelected" : ""
+            trailerId === selectedTrailer.trailerId ? "trailerCardSelected" : ""
           }`}
           key={`trailer-card-${trailerId}`}
           data-trailerid={trailerId}
+          style={{ order: index }}
         >
           <div className="trailerCardHeader">
             <div className="forTrailerImage">

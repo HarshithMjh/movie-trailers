@@ -1,0 +1,15 @@
+.trailerExploreContainer{
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+  .forTrailerVideo{
+    width: 60%;
+    height: 100%;
+  }
+  .forTrailerDetails{
+    width: calc(40% - 20px);
+    height: 100%;
+    border: 1px solid #fff;
+  }
+}
