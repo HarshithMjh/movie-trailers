@@ -10,10 +10,11 @@ function TrailerExplore({ trailerDetails }) {
     <div className="trailerExploreContainer">
       <div className="forTrailerVideo">
         <iframe
+          //need to get youtube video id from 'TrailerURL', as a normal video URL can't be embeded
           src={`https://www.youtube.com/embed/${
             trailerDetails.TrailerURL.split(/v=|&/)[1]
           }?autoplay=1`}
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           title="YouTube video player"
           width="100%"
@@ -25,7 +26,9 @@ function TrailerExplore({ trailerDetails }) {
         <div className="trailerLanguage">{trailerDetails.EventLanguage}</div>
         <div className="trailerGenres">
           {trailerDetails.EventGenre.split("|").map((genre) => (
-            <div className="trailerGenre">{genre}</div>
+            <div className="trailerGenre" key={`trailer-genre-${genre}`}>
+              {genre}
+            </div>
           ))}
         </div>
         <div className="trailerLikesAndCalendar">
