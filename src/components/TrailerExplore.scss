@@ -8,8 +8,103 @@
     height: 100%;
   }
   .forTrailerDetails{
-    width: calc(40% - 20px);
-    height: 100%;
-    border: 1px solid #fff;
+    padding: 15px;
+    width: calc(40% - 50px);
+    height: calc(100% - 30px);
+    background-color: rgba(255, 255, 255, .15);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    .trailerTitle{
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .trailerLanguage{
+      margin: 10px 0px;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+    .trailerGenres{
+      display: flex;
+      .trailerGenre{
+        margin-right: 10px;
+        padding: 3px 5px;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        border: 1px solid #fff;
+        border-radius: 10px;
+      }
+    }
+    .trailerLikesAndCalendar{
+      display: flex;
+      height: 30px;
+      margin: 10px 0px;
+      .svgAndDetailsSection{
+        display: flex;
+        height: 100%;
+        margin-right: 15px;
+        .svgContainer{
+          height: 100%;
+          margin-right: 5px;
+          display: flex;
+          align-items: center;
+          img{
+            width: 16px;
+          }
+        }
+        .detailsContainer{
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .line1{
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+          .line2{
+            font-size: 0.65rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .trailerText{
+      flex-grow: 1;
+    }
+    .trailerInterestCounts{
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.circularCountSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .forCircle{
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fff;
+    border-radius: 22px;
+    margin-bottom: 10px;
+    padding: 10px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .forText{
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .forCount{
+    font-size: 0.7rem;
+    font-weight: 400;
   }
 }

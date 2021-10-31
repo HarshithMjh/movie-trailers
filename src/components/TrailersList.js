@@ -51,7 +51,9 @@ function TrailersList({ trailers, filteredTrailerIds }) {
         <div
           className="trailerVideoSection"
           key={`trailer-video-${selectedTrailer.trailerId}`}
-          style={{ order: selectedTrailer.trailerVideoOrder }}
+          style={{
+            order: selectedTrailer.trailerVideoOrder
+          }}
           ref={trailerVideoSectionRef}
         >
           <TrailerExplore
