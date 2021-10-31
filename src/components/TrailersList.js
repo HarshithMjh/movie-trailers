@@ -74,7 +74,7 @@ function TrailersList({ trailers, filteredTrailerIds }) {
             <div className="forTrailerImage">
               <LazyImageRenderer
                 id={trailerId}
-                url={trailers[trailerId].EventImageUrl}
+                url={trailers[trailerId].EventImageUrl || ""}
                 altText={trailers[trailerId].EventTitle}
               />
             </div>

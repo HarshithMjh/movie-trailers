@@ -1,14 +1,14 @@
-$base-color: #43ab82;
+@import "../App.scss";
 
 .multiselectDropdownContainer{
   width: 100%;
   .multiselectDropdown{
-    color: $base-color;
+    color: $primary-base-color;
     .MuiSelect-icon{
-      color: $base-color;
+      color: $primary-base-color;
     }
     .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-notchedOutline:hover{
-      border-color: $base-color !important;
+      border-color: $primary-base-color !important;
     }
     .MuiInputBase-input{
       padding: 10px 32px 10px 12px;
@@ -20,15 +20,15 @@ $base-color: #43ab82;
   background-color: #292729 !important;
   opacity: 0.95 !important;
   .MuiMenuItem-root{
-    color: #fff;
+    color: $primary-text-color;
     padding-top: 3px;
     padding-bottom: 3px;
     .MuiCheckbox-root{
-      color: #fff;
+      color: $primary-text-color;
       padding: 3px 10px 3px 3px;
     }
     .Mui-checked{
-      color: $base-color;
+      color: $primary-base-color;
     }
   }
 }
